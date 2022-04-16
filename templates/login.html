@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Login</title> 
+{% endblock %}
+
+
+{% block body %}
+    <h1>Login</h1>
+    <form action='/login' method='POST'>
+        Email: <input type='text' name='email_id' id='email_id', required>
+        <br>
+        <br>
+        Password: <input type='password' name='password' id='password' required>
+        <br>
+        <br>
+        <input type='submit' value='Login'>
+    </form>
+
+    <a href="/register">Register</a>
+<hr>
+<div class="alert alert-primary" role="alert">
+    {{message}} 
+  </div>   
+
+{% endblock %}

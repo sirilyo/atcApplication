@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Login</title> 
+{% endblock %}
+
+
+{% block body %}
+    <h1><div class="text-center" >Add Listing</div></h1>
+    <div class ="container" style ="background-color:#f3dcdc;">
+        <div class = "row">
+    <form action='/add' method='POST' enctype="multipart/form-data">
+        <div class="col-md">
+            <div class="card bg-light mb-3" style="max-width: 18rem;" >
+                <h5 class="card-title"> Upload Images:<input type="file" id="file" name="file" accept="image/*">
+        <div class="card-body" style = "background-color:#caa8ac;">
+        Address: <input type='text' name='address' id='address', required>
+
+        Suburb:<input type='text' name='suburb' id='suburb' required>
+
+        Zip Code:<input type='number' name='zipcode' id='zipcode' required>
+        <br>
+        <br>
+        Details: <input type='textarea' name='details' id='details' required>
+        <br>
+        <br>
+        Price: <input type= 'number' name='price' id='price', required>
+        <br>
+
+        <input type="radio" id="status" name="status" value="forsale" checked>
+        <label for="status">For Sale</label><br>
+        <input type="radio" id="admin" name="status" value="sold">
+        <label for="admin">Sold</label><br>
+        
+        <input type='submit' value='Add'>
+        </div>
+        </h5>
+        </div>
+        </div>
+
+    </form>
+</div>
+</div>
+    <a href="/adminDashboard">Return to Dashboard</a>
+<hr>
+    <p>{{message}}</p>
+{% endblock %}

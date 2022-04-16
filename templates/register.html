@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>Register</title> 
+{% endblock %}
+
+{% block body %}
+    <h1>Register</h1>
+    <form action='/register' method='POST' enctype="multipart/form-data">
+        Email:<input type='text' name='email_id' id='email_id' required>
+        <br>
+        <br>
+        User Name:<input type='text' name= 'user_name' id='user_name' required>
+        <br>
+        <br>
+        Password:<input type='text' name='password' id='password' required>
+        <br>
+        <br>
+        <!-- <input type="radio" id="user" name="user_type" value="user" checked>
+        <label for="user">User</label><br>
+        <input type="radio" id="admin" name="user_type" value="admin">
+        <label for="admin">Admin</label><br>
+        <br>
+        <br> -->
+        <input type='submit' value='Register'>
+    </form>
+    <hr>
+    <p>{{message}}</p>
+{% endblock %}

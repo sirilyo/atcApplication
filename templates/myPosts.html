@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<h1><div class="text-center" >My Posts</div></h1>
+<hr>
+<title>Posts</title> 
+<form action="/add">
+    <input type="submit" value="Add Post" />
+</form>
+{% endblock %}
+
+{% block body %}
+
+<div class="container" style ="background-color:#f3dcdc;">
+    <div class = "row">
+{% for post in posts %}
+    <form action = '/listPosts' method="POST">  
+        <div class="col-sm">
+            <div class="card bg-light mb-3" style="max-width: 18rem;">
+                <input type="hidden" name="post_id" value="{{post.post_id}}"/>
+                <img src = "{{post.image_url}}" class="card-img-top" name = "image_url" alt = " Post Image" width="250px" height="250px">
+                <div class="card-body" style = "background-color:#caa8ac;">
+                    Content:<h5 class="card-title">{{ listing.address }}</h5>
+                    <input type="hidden" name="content" value="{{post.content}}"/>
+                    <br>
+                    <!-- Suburb:<p class="card-text">{{listing.suburb}} 
+                      <input type="hidden" name="suburb" value="{{listing.suburb}}"/>  
+                  <br>
+                      Zipcode: <br> {{listing.zipcode}}
+                      <input type="hidden" name="zipcode" value="{{listing.zipcode}}"/> 
+                  <br>
+                      Details: <br> {{listing.details}}
+                      <input type="hidden" name="details" value="{{listing.details}}"/>
+                     <br>
+                      Price: <br>{{listing.price}}
+                      <input type="hidden" name="price" value="{{listing.price}}"/>
+                     <br>
+                      Status: <br>{{listing.status}}
+                      <input type="hidden" name="status" value="{{listing.status}}"/> 
+                     -->
+<!-- 
+                    <input type = 'submit' value="Edit"/> -->
+
+
+
+       </div>
+        </div>
+      
+    </div>
+    </form>
+{%endfor%}
+</div>
+</div>
+
+    <form action="/logout">
+        <input type="submit" value="Logout" />
+    </form>
+
+{% endblock %}

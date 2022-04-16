@@ -1,0 +1,28 @@
+{% block body %}
+<h1> Listings</h1>
+<br>
+{% for listing in listings %}
+    <form action = '/interest' method="POST">  
+        <h2>{{ listing.address }}</h2>
+        <br>
+        <img src = "{{listing.image_url}}" alt = " Listing Image" width="250px" height="250px">
+        <br>
+        <h3>{{listing.suburb}}</h3>
+        <h3>{{listing.zipcode}}</h3>
+        <h2>Details :</h2>
+        <p>{{ listing.details}}</p>
+        <br>
+        <br>
+        <h2>Price :</h2>
+        <p>{{ listing.price}}</p>
+        <h2>{{listing.status}}</h2>
+        {%for com in comments%}
+        <p>User: {{com.user}}</p>
+        <p>Comment: {{com.comment}}</p>
+        Add Comments: <input type='textarea' name='comments' id='comments'>
+        <br /><button type="submit">Comment</button>
+        {%endfor%}
+    </form>
+{%endfor%}
+
+    {% endblock %}
